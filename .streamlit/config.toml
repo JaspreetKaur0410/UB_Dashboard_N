@@ -1,2 +1,5 @@
 [deprecation]
 showPyplotGlobalUse = false
+[theme]
+base="dark"
+primaryColor="purple"
