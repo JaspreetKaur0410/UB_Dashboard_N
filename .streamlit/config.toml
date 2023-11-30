@@ -2,4 +2,3 @@
 showPyplotGlobalUse = false
 [theme]
 base="dark"
-primaryColor="white"
