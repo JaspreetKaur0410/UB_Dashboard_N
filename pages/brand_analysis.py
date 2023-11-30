@@ -7,7 +7,7 @@ def convert_to_pd(query_var):
 
 # start - USER DATA
 df_data_users=convert_to_pd(get_users_data_filters())
-st.dataframe(df_data_users)
+# st.dataframe(df_data_users)
 # end - USER DATA
 
 # start - Number of products for brands
