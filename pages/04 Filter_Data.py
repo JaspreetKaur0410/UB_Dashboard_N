@@ -10,7 +10,7 @@ def convert_to_pd(query_var):
     return pd.DataFrame(query_var)
 
 # start - USER DATA
-st.info('Filter Data or select columns')
+st.info('USERS DATA - Filter Data or select columns')
 df_data_users=convert_to_pd(get_users_data_filters())
 # AgGrid(df_data_users)
 
