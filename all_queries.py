@@ -223,9 +223,9 @@ having count_social_media_recommended>2 and count_influencer_recommended>2
 order by count_social_media_recommended DESC, count_influencer_recommended DESC
 '''
 
-query_users_data_filters='''select ui.user_name,c.sleepSchedule,c.sunlightExposure, c.healthIssues, c.stressLevel, c.waterConsumption,
+query_users_data_filters='''select ui.user_name,c.sleepSchedule,ui.age,ui.city,c.sunlightExposure, c.healthIssues, c.stressLevel, c.waterConsumption,
 c.exercise, c.medication, c.smoke from challenges c
 join user_master_data_influencer ui 
 on ui.user_id = c.user_id
-where ui.user_name<>'' and c.sleepSchedule<>''and c.sunlightExposure<>'' and  c.healthIssues<>'' and c.stressLevel<>'' and  c.waterConsumption<>'' and 
+where ui.user_name<>'' and ui.age<>'' and ui.city<>'' and c.sleepSchedule<>''and c.sunlightExposure<>'' and  c.healthIssues<>'' and c.stressLevel<>'' and  c.waterConsumption<>'' and 
 c.exercise<>'' and c.medication<>'' and c.smoke<>"" '''
