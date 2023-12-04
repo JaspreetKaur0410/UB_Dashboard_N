@@ -26,6 +26,18 @@ base_chart.encode(x=alt.X('count_influencer_recommended')) | base_chart.encode(x
 # st.altair_chart(base_chart)
 # end - Brands Used by customers - recommended by Social-Media & Influencers
 
+# start - Number of products for brands
+get_count_products_by_brand=get_count_products_for_brand()
+df_get_count_prodcutts_by_brand=pd.DataFrame(get_count_products_by_brand)
+st.info('Top Brands based on highest number of products in the market')
+chart_count_products_by_brand=alt.Chart(df_get_count_prodcutts_by_brand).mark_bar(size=4).encode(
+        x='total_products_for_brand',
+        y=alt.Y('brand_name:N', sort='-x'),
+        color='total_products_for_brand'
+        ).properties(width = 1900, height = 300)
+st.altair_chart(chart_count_products_by_brand, use_container_width=True)
+# end - Number of products for brands
+
 # start - highest-price-product for different brands
 df_get_highest_price_by_brand=convert_to_pd(get_highest_price_by_brand())
 # st.info('HIGHEST_PRICE_PRODUCT BY BRAND')
@@ -37,23 +49,11 @@ st.info('Top 20 brands - used by people')
 df_people_count_by_brand=convert_to_pd(get_people_count_by_brand())
 chart_count_people_by_brand=alt.Chart(df_people_count_by_brand).mark_bar(size=4).encode(
         x='count_users',
-        y='brand_name',
+        y=alt.Y('brand_name:N', sort='-x'),
         color='count_users'
         ).properties(width = 1800, height = 500)
 st.altair_chart(chart_count_people_by_brand, use_container_width=True)
 # end - how many people using different brands
-
-# start - Number of products for brands
-get_count_products_by_brand=get_count_products_for_brand()
-df_get_count_prodcutts_by_brand=pd.DataFrame(get_count_products_by_brand)
-st.info('Top Brands based on highest number of products in the market')
-chart_count_products_by_brand=alt.Chart(df_get_count_prodcutts_by_brand).mark_bar(size=4).encode(
-        x='total_products_for_brand',
-        y='brand_name',
-        color='total_products_for_brand'
-        ).properties(width = 1900, height = 300)
-st.altair_chart(chart_count_products_by_brand, use_container_width=True)
-# end - Number of products for brands
 
 # start - How many purchases from each brand from different stores
 st.info('Number of Purchases for different brands from different stores - Amazon has more hold than Nykaa & Local-Stores')
@@ -80,15 +80,6 @@ st.info('Top 10 MOST RECOMMENDED BRANDS')
 df_recommended_count=convert_to_pd(get_most_recommended())
 chart_recommended_count=alt.Chart(df_recommended_count).mark_bar(size=6).encode(
         x='recommendation_count',
-        y='brand_name').properties(width = 1150, height = 400)
+        y=alt.Y('brand_name:N', sort='-x')).properties(width = 1150, height = 400)
 st.altair_chart(chart_recommended_count)
 # end - How many people for each "recommended_by" recommeded the brand 
-
-
-
-
-
-
-
-            
-    
